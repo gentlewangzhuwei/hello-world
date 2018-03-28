@@ -1,0 +1,23 @@
+import time
+import datetime
+print"""
+hello,welcome to my notebook.
+today is %s"""%time.asctime(time.localtime(time.time()))
+while True:
+    note=raw_input(">>>")
+    def save(note):
+        with open("%s.txt"%datetime.date.today() ,'a') as f:
+            f.write(note)
+            f.write('\n')
+            f.close()
+
+    save(note)
+    if note=="over":
+        break
+print' DO YOU NEED to open it up now ?'
+dec=raw_input("yes or no")
+if dec=='yes':
+    with  open("%s.txt" % datetime.date.today(), 'r') as f:
+        print(f.readlines())
+else:
+    print "ok,I won't open it"
