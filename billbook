@@ -1,0 +1,30 @@
+#coding=utf-8
+import time
+print """
+welcome to the billbook.today is %s
+
+"""%time.asctime( time.localtime(time.time()) )
+while True:
+    print 'how much did you cost today'
+    cost=raw_input(">>>>")
+    def spend(number):
+        with open('cost.txt','a') as f:
+            f.write(time.asctime( time.localtime(time.time()) ))
+            f.write('\n')
+            f.write("cost------")
+            f.write(number)
+            f.close()
+    spend(cost)
+    print'how much did you earn'
+    earned=raw_input(">>>>")
+    def save(number):
+        with open('save.txt','a') as f:
+            f.write(time.asctime(time.localtime(time.time())))
+            f.write('\n')
+            f.write("save------")
+            f.write(number)
+            f.write('\n')
+            f.close()
+    save(earned)
+    print 'ok,today you earned %s,and you spend %s'%(earned,cost)
+
